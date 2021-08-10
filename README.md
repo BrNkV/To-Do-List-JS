@@ -1,2 +1,3 @@
 # To-Do-List-JS
-To do list written using JS language. A small piece of work for my portfolio.
+To do list written using JS language.
+A small piece of work for my portfolio.

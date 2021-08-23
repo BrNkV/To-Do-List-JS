@@ -15,15 +15,13 @@
   <div id="app">
     <div class="container todo">
       <div class="input-group mb-3 todo__input">
-        <input type="text" placeholder="New task" class="form-control todo__text" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default">
+        <input type="text" placeholder="New task" class="form-control todo__text">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
       </div>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Tasks status</option>
-        <option value="active">Ative</option>
+      <select class="form-select">
+        <option value="all">All</option>
+        <option selected value="active">Active</option>
         <option value="completed">Completed</option>
-        <option value="deleted">Deleted</option>
       </select>
       <ol class="list-group list-group-numbered" class="todo__items"></ol>
     </div>
@@ -32,12 +30,3 @@
 </body>
 
 </html>
-
-<!-- task code 
-<li class="todo__item" data-todo-state="active">
-  <span class="list-group-item todo__task">Текст задачи</span>
-  <span class=" list-group-itemtodo__action todo__action_restore" data-todo-action="active"></span>
-  <span class="list-group-item todo__action todo__action_complete" data-todo-action="completed"></span>
-  <span class="list-group-item todo__action todo__action_delete" data-todo-action="deleted"></span>
-</li>
- -->

@@ -1,7 +1,7 @@
 const addTaksBtn = document.querySelector('.add-task-btn');
 const taskInp = document.querySelector('.todo__text');
 // console.log(taskInp);
-const todosContainer = document.querySelector('.todo_items');
+const todosContainer = document.querySelector('.todos-container');
 
 let allTasks;
 
@@ -62,7 +62,7 @@ const fillHtmlList = () => {
         });
     }
 }
-
+fillHtmlList();
 
 /**
  * update localStorage > JSON
@@ -78,4 +78,5 @@ addTaksBtn.addEventListener('click', () => {
     allTasks.push(new Task(taskInp.value));
     console.log(allTasks);
     updatelS();
+    fillHtmlList();
 })

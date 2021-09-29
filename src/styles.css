@@ -13,7 +13,7 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.todo__items{
+.todo_items{
   display: flex;
   flex-direction: column;
   margin: 2% auto;
@@ -28,3 +28,8 @@ margin-top: -1%;
   margin-bottom: 2%;
 
 }
+
+.todo__item_text{
+
+}
+

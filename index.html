@@ -13,12 +13,12 @@
 
 <body>
   <div id="app">
-    <div class="container todo__items">
+    <div class="container todo_items">
 
       <!-- input new task -->
       <div class="input-group mb-3 todo__input">
         <input type="text" placeholder="New task" class="form-control todo__text">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+        <button class="btn btn-outline-secondary add-task-btn" type="button">Add</button>
       </div>
 
       <!-- status change -->
@@ -31,28 +31,46 @@
       <!-- 1 pc of item -->
       <div class="input-group mb-3 todo__item">
         <div class="input-group-text">
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+          <input class="form-check-input mt-0 task-input" type="checkbox" value=""
+            aria-label="Checkbox for following text input">
+          <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
+        <div class="form-control todo__item_text" aria-label="Text input with checkbox">
+        </div>
+      </div>
+      <!-- ------------- -->
+      <div class="input-group mb-3 todo__item">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0 task-input" type="checkbox" value=""
+            aria-label="Checkbox for following text input">
+          <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
+        </div>
+        <div class="form-control todo__item_text" aria-label="Text input with checkbox">
+        </div>
       </div>
 
       <div class="input-group mb-3 todo__item">
         <div class="input-group-text">
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+          <input class="form-check-input mt-0 task-input" type="checkbox" value=""
+            aria-label="Checkbox for following text input">
+          <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
+        <div class="form-control todo__item_text" aria-label="Text input with checkbox">
+        </div>
       </div>
+
 
       <div class="input-group mb-3 todo__item">
         <div class="input-group-text">
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+          <input class="form-check-input mt-0 task-input" type="checkbox" value=""
+            aria-label="Checkbox for following text input">
+          <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-      </div>
+        <div class="form-control todo__item_text" aria-label="Text input with checkbox">
 
-    </div>
-  </div>
-  <script src="src/index.js"></script>
+        </div>
+      </div>
+      <script src="src/index.js"></script>
 </body>
 
 </html>

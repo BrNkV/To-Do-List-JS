@@ -13,17 +13,43 @@
 
 <body>
   <div id="app">
-    <div class="container todo">
+    <div class="container todo__items">
+
+      <!-- input new task -->
       <div class="input-group mb-3 todo__input">
         <input type="text" placeholder="New task" class="form-control todo__text">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
       </div>
-      <select class="form-select">
+
+      <!-- status change -->
+      <select class="form-select select-status">
         <option value="all">All</option>
         <option selected value="active">Active</option>
         <option value="completed">Completed</option>
       </select>
-      <ol class="list-group list-group-numbered" class="todo__items"></ol>
+
+      <!-- 1 pc of item -->
+      <div class="input-group mb-3 todo__item">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with checkbox">
+      </div>
+
+      <div class="input-group mb-3 todo__item">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with checkbox">
+      </div>
+
+      <div class="input-group mb-3 todo__item">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with checkbox">
+      </div>
+
     </div>
   </div>
   <script src="src/index.js"></script>

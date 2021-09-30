@@ -81,7 +81,8 @@ const updatelS = () => {
  * send description(taskInp) in Task 
  */
 addTaksBtn.addEventListener('click', () => {
-    allTasks.push(new Task(taskInp.value));
+    if (taskInp.value != '') allTasks.push(new Task(taskInp.value));
     updatelS();
     fillHtmlList();
+    taskInp.value = '';
 })

@@ -40,7 +40,7 @@ const createTemplate = (task, index) => {
     return (`
     <div class="input-group mb-3 todo__item ${task.completed ? 'checked' : ''}">
         <div class="input-group-text">
-          <input class="form-check-input mt-0 task-input" type="checkbox" value=""
+          <input onclick="completeTask(${index})" class="form-check-input mt-0 task-input" type="checkbox" value=""
             aria-label="Checkbox for following text input" ${task.completed ? 'checked' : ''}>
           <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
         </div>
@@ -67,7 +67,7 @@ const fillHtmlList = () => {
     }
 }
 
-// fillHtmlList();
+fillHtmlList();
 
 /**
  * update localStorage > JSON
@@ -76,6 +76,14 @@ const updatelS = () => {
     localStorage.setItem('tasks', JSON.stringify(allTasks))
 }
 
+/**
+ * 
+ * @param index 
+ */
+const completeTask = (index) => {
+    console.log(index);
+    allTasks[index].completed = !allTasks[index].completed
+}
 
 /**
  * send description(taskInp) in Task 

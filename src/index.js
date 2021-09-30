@@ -1,14 +1,15 @@
 const addTaksBtn = document.querySelector('.add-task-btn');
 const taskInp = document.querySelector('.todo__text');
-// console.log(taskInp);
+console.log(taskInp.value);
 const todosContainer = document.querySelector('.todos-container');
 
-let allTasks;
+let allTasks = [];
+console.log(allTasks);
 
 /**
  *  check LS
  */
-if (!localStorage) allTasks = [];
+if (!localStorage.tasks) allTasks = [];
 else allTasks = JSON.parse(localStorage.getItem('tasks'));
 
 /*
@@ -37,10 +38,10 @@ function Task(description) {
  */
 const createTemplate = (task, index) => {
     return (`
-    <div class="input-group mb-3 todo__item">
+    <div class="input-group mb-3 todo__item ${task.completed ? 'checked' : ''}">
         <div class="input-group-text">
           <input class="form-check-input mt-0 task-input" type="checkbox" value=""
-            aria-label="Checkbox for following text input">
+            aria-label="Checkbox for following text input" ${task.completed ? 'checked' : ''}>
           <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
         </div>
         <div class="form-control todo__item_text" aria-label="Text input with checkbox">
@@ -61,8 +62,12 @@ const fillHtmlList = () => {
             todosContainer.innerHTML += createTemplate(item, index);
         });
     }
+    else {
+        console.log("Error allTasks 0")
+    }
 }
-fillHtmlList();
+
+// fillHtmlList();
 
 /**
  * update localStorage > JSON
@@ -71,12 +76,12 @@ const updatelS = () => {
     localStorage.setItem('tasks', JSON.stringify(allTasks))
 }
 
+
 /**
  * send description(taskInp) in Task 
  */
 addTaksBtn.addEventListener('click', () => {
     allTasks.push(new Task(taskInp.value));
-    console.log(allTasks);
     updatelS();
     fillHtmlList();
 })

@@ -17,18 +17,15 @@ else allTasks = JSON.parse(localStorage.getItem('tasks'));
  */
 let todoItems = [];
 
-/*
+/**
+ * 
+ * @param {text task name} description 
+ * 
 1pc item in local storage
-
 const taskItem = {
     description: "task text",
     completed: false
 }
-*/
-
-/**
- * 
- * @param {text task name} description 
  */
 function Task(description) {
     this.description = description;

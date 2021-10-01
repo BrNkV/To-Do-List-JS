@@ -29,7 +29,8 @@ margin-top: -1%;
 
 }
 
-.todo__item_text{
-
+.checked{
+  opacity: 0.3;
+  text-decoration: line-through;
 }
 

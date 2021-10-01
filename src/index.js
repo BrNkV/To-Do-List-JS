@@ -12,6 +12,11 @@ console.log(allTasks);
 if (!localStorage.tasks) allTasks = [];
 else allTasks = JSON.parse(localStorage.getItem('tasks'));
 
+/**
+ * all todo__item's from CSS class ="todo__item"
+ */
+let todoItems = [];
+
 /*
 1pc item in local storage
 
@@ -63,8 +68,9 @@ const fillHtmlList = () => {
         });
     }
     else {
-        console.log("Error allTasks 0")
+        console.log("allTasks length = 0")
     }
+    todoItems = document.querySelectorAll('.todo__item');
 }
 
 fillHtmlList();
@@ -82,7 +88,11 @@ const updatelS = () => {
  */
 const completeTask = (index) => {
     console.log(index);
-    allTasks[index].completed = !allTasks[index].completed
+    allTasks[index].completed = !allTasks[index].completed;
+    if(allTasks[index].completed) todoItems[index].classList.add('checked');
+    else todoItems[index].classList.remove('checked');
+    updatelS();
+    fillHtmlList();
 }
 
 /**

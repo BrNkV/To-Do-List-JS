@@ -46,12 +46,13 @@ const createTemplate = (task, index) => {
     <div class="input-group mb-3 todo__item ${task.completed ? 'checked' : ''}">
         <div class="input-group-text">
           <input onclick="completeTask(${index})" class="form-check-input mt-0 task-input" type="checkbox" value=""
-            aria-label="Checkbox for following text input" ${task.completed ? 'checked' : ''}>
-          <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
+            aria-label="Checkbox for following text input" ${task.completed ? 'checked' : ''}>          
         </div>
         <div class="form-control todo__item_text" aria-label="Text input with checkbox">
         ${task.description}
+        <button onclick="delTask(${index})" type="button" class="btn-close btn-delete" aria-label="Close"></button>
         </div>
+        
       </div>
     `)
 }
@@ -89,7 +90,7 @@ const updatelS = () => {
 const completeTask = (index) => {
     console.log(index);
     allTasks[index].completed = !allTasks[index].completed;
-    if(allTasks[index].completed) todoItems[index].classList.add('checked');
+    if (allTasks[index].completed) todoItems[index].classList.add('checked');
     else todoItems[index].classList.remove('checked');
     updatelS();
     fillHtmlList();
@@ -104,3 +105,14 @@ addTaksBtn.addEventListener('click', () => {
     fillHtmlList();
     taskInp.value = '';
 })
+
+/**
+ * delete task from array and updateLS
+ * @param  index 
+ */
+const delTask = (index) => {
+    console.log(index);
+    allTasks.splice(index, 1);
+    updatelS();
+    fillHtmlList();
+}

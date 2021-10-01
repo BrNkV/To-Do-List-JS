@@ -40,3 +40,17 @@ body {
 .btn-delete {
   float: right;
 }
+
+.deleted {
+  animation: opacity 1s ease-in-out;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

@@ -3,7 +3,7 @@ const taskInp = document.querySelector('.todo__text');
 console.log(taskInp.value);
 const todosContainer = document.querySelector('.todos-container');
 
-let allTasks = [];
+let allTasks;
 console.log(allTasks);
 
 /**
@@ -58,12 +58,22 @@ const createTemplate = (task, index) => {
 }
 
 /**
+ * sort array allTasks in localStorage
+ */
+const filterTasks = () => {
+    const activeTsk = allTasks.length && allTasks.filter(item => item.completed == false);
+    const completeTsk = allTasks.length && allTasks.filter(item => item.completed == true);
+    allTasks = [...activeTsk, ...completeTsk];
+}
+
+/**
  * fill all tasks in HTML list
  * @returns 
  */
 const fillHtmlList = () => {
     todosContainer.innerHTML = '';
     if (allTasks.length > 0) {
+        filterTasks();
         allTasks.forEach((item, index) => {
             todosContainer.innerHTML += createTemplate(item, index);
         });
@@ -112,7 +122,10 @@ addTaksBtn.addEventListener('click', () => {
  */
 const delTask = (index) => {
     console.log(index);
-    allTasks.splice(index, 1);
-    updatelS();
-    fillHtmlList();
+    todoItems[index].classList.add('deleted')
+    setTimeout(() => {
+        allTasks.splice(index, 1);
+        updatelS();
+        fillHtmlList();
+    }, 500)
 }

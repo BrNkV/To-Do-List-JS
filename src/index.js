@@ -2,8 +2,9 @@ const addTaksBtn = document.querySelector('.add-task-btn');
 const taskInp = document.querySelector('.todo__text');
 console.log(taskInp.value);
 const todosContainer = document.querySelector('.todos-container');
+const statSelect = document.querySelector('.select-status');
 
-let allTasks;
+let allTasks, activeTsk, completeTsk;
 console.log(allTasks);
 
 /**
@@ -58,23 +59,45 @@ const createTemplate = (task, index) => {
  * sort array allTasks in localStorage
  */
 const filterTasks = () => {
-    const activeTsk = allTasks.length && allTasks.filter(item => item.completed == false);
-    const completeTsk = allTasks.length && allTasks.filter(item => item.completed == true);
+    activeTsk = allTasks.length && allTasks.filter(item => item.completed == false);
+    completeTsk = allTasks.length && allTasks.filter(item => item.completed == true);
     allTasks = [...activeTsk, ...completeTsk];
 }
+
+//TODO поставить слушатель на выпадающий select , при смене менять selected и удалять у пердыдущего, после чего запускать фильтрацию, после чего условием заполнять active allTasks = [...activeTsk]; complete allTasks = [...completeTsk]; all allTasks = [...activeTsk, ...completeTsk];
+statSelect.addEventListener('change', () => {
+    fillHtmlList();
+});
 
 /**
  * fill all tasks in HTML list
  * @returns 
+ * 
  */
 const fillHtmlList = () => {
     todosContainer.innerHTML = '';
-    if (allTasks.length > 0) {
+    //TODO можно оптимизировать
+    if (allTasks.length > 0 && statSelect.value == 'all') {
         filterTasks();
         allTasks.forEach((item, index) => {
             todosContainer.innerHTML += createTemplate(item, index);
         });
     }
+
+    else if (activeTsk.length > 0 && statSelect.value == 'active') {
+        filterTasks();
+        activeTsk.forEach((item, index) => {
+            todosContainer.innerHTML += createTemplate(item, index);
+        });
+    }
+
+    else if (completeTsk.length > 0 && statSelect.value == 'completed') {
+        filterTasks();
+        completeTsk.forEach((item, index) => {
+            todosContainer.innerHTML += createTemplate(item, index);
+        });
+    }
+
     else {
         console.log("allTasks length = 0")
     }

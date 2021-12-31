@@ -4,13 +4,13 @@ console.log(taskInp.value);
 const todosContainer = document.querySelector('.todos-container');
 const statSelect = document.querySelector('.select-status');
 
-let allTasks, activeTsk, completeTsk;
-console.log(allTasks);
+let allTasks = [], activeTsk = [], completeTsk = [];
+// console.log(allTasks, activeTsk, completeTsk, localStorage, allTasks.length);
 
 /**
  *  check LS
  */
-if (!localStorage.tasks) allTasks = [];
+if (!localStorage.tasks || localStorage == undefined) allTasks = [];
 else allTasks = JSON.parse(localStorage.getItem('tasks'));
 
 /**
@@ -109,7 +109,7 @@ fillHtmlList();
 /**
  * update localStorage > JSON
  */
-const updatelS = () => {
+function updatelS() {
     localStorage.setItem('tasks', JSON.stringify(allTasks))
 }
 
